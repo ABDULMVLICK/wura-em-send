@@ -18,6 +18,7 @@
       'nav.why': 'Pourquoi Wura',
       'nav.faq': 'Questions',
       'cta.send': 'Envoyer maintenant',
+      'marq.label': 'Vous payez depuis',
       'hero.badge': 'Afrique → Europe, par Mobile Money',
       'hero.t1': "Envoyez de l'argent",
       'hero.t2': "d'Afrique vers l'Europe.",
@@ -90,6 +91,7 @@
       'nav.why': 'Why Wura',
       'nav.faq': 'FAQ',
       'cta.send': 'Send now',
+      'marq.label': 'You pay from',
       'hero.badge': 'Africa → Europe, with Mobile Money',
       'hero.t1': 'Send money',
       'hero.t2': 'from Africa to Europe.',
@@ -245,12 +247,22 @@
         (qa) => `
       <details class="faq-item">
         <summary class="faq-q">${qa[0]}
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
         </summary>
         <div class="faq-a">${qa[1]}</div>
       </details>`
       )
       .join('');
+  }
+
+  // Marquee de pays d'envoi (façon kreativa) : la piste est dupliquée pour une boucle continue.
+  function renderMarquee() {
+    const track = $('#marqueeTrack');
+    if (!track) return;
+    const item = (c) =>
+      `<span class="marquee-item"><span class="flag" aria-hidden="true">${c[0]}</span>${c[1][lang]}</span>`;
+    const seq = FROM.map(item).join('');
+    track.innerHTML = seq + seq; // ×2 → translateX(-50%) boucle sans couture
   }
 
   function applyLang(next) {
@@ -270,7 +282,31 @@
     renderChips();
     renderFaq();
     renderPartners();
+    renderMarquee();
+    styleHeroLines();
     updateConverter();
+  }
+
+  // Découpe chaque ligne du titre hero en une ligne masquée + un inner translatable, pour le
+  // reveal « mask » façon kreativa (SplitText). Rejoué après chaque changement de langue (l'i18n
+  // remet le textContent, donc on ré-enveloppe).
+  function styleHeroLines() {
+    $$('.hero-title .word').forEach((w) => {
+      const txt = w.textContent;
+      w.classList.add('line');
+      w.innerHTML = `<span class="line-inner">${txt}</span>`;
+    });
+  }
+  function animateHeroIntro() {
+    if (reduced || typeof window.gsap === 'undefined') return;
+    window.gsap.set('.hero-title .line-inner', { yPercent: 118 });
+    window.gsap.to('.hero-title .line-inner', {
+      yPercent: 0,
+      duration: 1.1,
+      ease: 'expo.out',
+      stagger: 0.1,
+      delay: 0.15,
+    });
   }
 
   $$('.lang-btn').forEach((b) =>
@@ -415,11 +451,17 @@
       if (glow) glow.style.opacity = '1';
     });
     (function loop() {
-      cx += (gx - cx) * 0.12;
-      cy += (gy - cy) * 0.12;
+      cx += (gx - cx) * 0.18;
+      cy += (gy - cy) * 0.18;
       if (glow) glow.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
       requestAnimationFrame(loop);
     })();
+
+    // Anneau qui grossit au survol des éléments interactifs (façon curseur kreativa).
+    $$('a, button, .faq-q, [data-magnetic]').forEach((el) => {
+      el.addEventListener('mouseenter', () => glow && glow.classList.add('is-hover'));
+      el.addEventListener('mouseleave', () => glow && glow.classList.remove('is-hover'));
+    });
 
     $$('[data-magnetic]').forEach((el) => {
       el.addEventListener('mousemove', (e) => {
@@ -478,7 +520,7 @@
     function draw(ts) {
       if (!running) return;
       ctx.clearRect(0, 0, w, h);
-      const alpha = 0.2; // violet subtil sur fond porcelaine clair
+      const alpha = 0.22; // mint subtil sur fond charbon
       lines.forEach((ln) => {
         ctx.beginPath();
         const startX = w * (0.5 - ln.len / 2);
@@ -491,9 +533,9 @@
           else ctx.lineTo(x, y);
         }
         const grad = ctx.createLinearGradient(startX, 0, endX, 0);
-        grad.addColorStop(0, 'rgba(106,90,199,0)');
-        grad.addColorStop(0.5, `rgba(106,90,199,${alpha})`);
-        grad.addColorStop(1, 'rgba(106,90,199,0)');
+        grad.addColorStop(0, 'rgba(190,224,214,0)');
+        grad.addColorStop(0.5, `rgba(190,224,214,${alpha})`);
+        grad.addColorStop(1, 'rgba(190,224,214,0)');
         ctx.strokeStyle = grad;
         ctx.lineWidth = ln.width;
         ctx.stroke();
@@ -521,9 +563,10 @@
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  applyLang(lang); // rend chips + faq + i18n + converter
+  applyLang(lang); // rend chips + faq + marquee + i18n + converter + découpe titre hero
   updateConverter();
   initReveal();
+  animateHeroIntro(); // reveal ligne-par-ligne du titre (après le découpage par applyLang)
   initLenis();
   initPointer();
   initHeroCanvas();
