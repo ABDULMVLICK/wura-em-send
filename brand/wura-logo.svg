@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-label="Wura logo">
+  <title>Wura</title>
+  <defs>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Fond Navy Deep (brand book : Negatif Ivory + trait or sur Navy) -->
+  <rect width="1080" height="1080" fill="#0a0e1a"/>
+
+  <!-- Wordmark « Wura » Space Grotesk bold droit (même police que le site et l'app) -->
+  <text x="540" y="590" text-anchor="middle"
+        font-family="'Space Grotesk', 'Inter', system-ui, sans-serif"
+        font-style="normal"
+        font-weight="700"
+        font-size="300"
+        letter-spacing="-10"
+        fill="#f5efe0">Wura</text>
+
+  <!-- Trait d'or centré sous le mot — signature « Le Trait » -->
+  <rect x="350" y="650" width="380" height="16" rx="3" fill="#d4a24e"/>
+</svg>

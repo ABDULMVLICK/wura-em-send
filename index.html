@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0e1a" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Wura — Envoyez de l'argent d'Afrique vers l'Europe par Mobile Money</title>
+    <meta
+      name="description"
+      content="Envoyez de l'argent d'Afrique vers l'Europe en payant avec votre Mobile Money. Sans compte bancaire côté expéditeur, en quelques minutes. Le bénéficiaire reçoit des euros sur son compte."
+    />
+    <meta name="author" content="Wura" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://send.wura-pay.com/" />
+
+    <link rel="icon" type="image/svg+xml" href="/brand/wura-logo.svg" />
+    <link rel="apple-touch-icon" href="/brand/wura-logo-320.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Wura" />
+    <meta property="og:url" content="https://send.wura-pay.com/" />
+    <meta property="og:title" content="Envoyez de l'argent d'Afrique vers l'Europe par Mobile Money" />
+    <meta
+      property="og:description"
+      content="Payez avec votre Mobile Money, votre proche reçoit des euros sur son compte bancaire. Sans compte bancaire côté expéditeur, en quelques minutes."
+    />
+    <meta property="og:image" content="https://send.wura-pay.com/brand/wura-logo-1080.png" />
+    <meta property="og:image:width" content="1080" />
+    <meta property="og:image:height" content="1080" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Wura — Afrique → Europe par Mobile Money" />
+    <meta
+      name="twitter:description"
+      content="Payez avec votre Mobile Money, votre proche reçoit des euros sur son compte bancaire."
+    />
+    <meta name="twitter:image" content="https://send.wura-pay.com/brand/wura-logo-1080.png" />
+
+    <link rel="stylesheet" href="/styles.css" />
+    <script>
+      // no-js → js le plus tôt possible (évite le flash), + thème avant paint
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+      try {
+        var t = localStorage.getItem('wura-theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+        var l = localStorage.getItem('wura-lang');
+        if (!l) l = (navigator.language || 'fr').toLowerCase().startsWith('en') ? 'en' : 'fr';
+        document.documentElement.setAttribute('lang', l);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Noise overlay -->
+    <svg class="noise" aria-hidden="true" width="100%" height="100%">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+    </svg>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <!-- ═══════════════ HEADER ═══════════════ -->
+    <header class="header" id="header">
+      <div class="header-inner container">
+        <a class="brand" href="#top" aria-label="Wura">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 6l3 12 3-9 3 9 3-12" />
+              <path d="M18 6l3 12" opacity="0.55" />
+            </svg>
+          </span>
+          <span class="brand-word">Wura</span>
+        </a>
+
+        <nav class="nav" aria-label="Navigation principale">
+          <a href="#how" data-i18n="nav.how">Comment ça marche</a>
+          <a href="#countries" data-i18n="nav.countries">Pays</a>
+          <a href="#why" data-i18n="nav.why">Pourquoi Wura</a>
+          <a href="#faq" data-i18n="nav.faq">Questions</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="lang-switch" role="group" aria-label="Langue / Language">
+            <button type="button" class="lang-btn" data-lang="fr" aria-pressed="true">FR</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Changer de thème">
+            <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          </button>
+          <a class="btn-primary header-cta" href="https://app.wura-pay.com/send" data-magnetic data-ripple>
+            <span data-i18n="cta.send">Envoyer maintenant</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ═══════════════ HERO ═══════════════ -->
+      <section class="hero">
+        <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <span class="badge reveal">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span data-i18n="hero.badge">Afrique → Europe, par Mobile Money</span>
+          </span>
+
+          <h1 class="hero-title reveal">
+            <span class="word" data-i18n="hero.t1">Envoyez de l'argent</span>
+            <span class="word" data-i18n="hero.t2">d'Afrique vers l'Europe.</span>
+            <span class="word text-gradient" data-i18n="hero.t3">Payez avec Mobile Money.</span>
+          </h1>
+
+          <p class="hero-sub reveal" data-i18n="hero.sub">
+            Pas besoin de compte bancaire pour envoyer. Vous payez avec votre Mobile Money,
+            votre proche reçoit des euros sur son compte. En quelques minutes.
+          </p>
+
+          <div class="hero-actions reveal">
+            <a class="btn-primary btn-lg" href="https://app.wura-pay.com/send" data-magnetic data-ripple>
+              <span data-i18n="hero.cta">Envoyer de l'argent</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn-glass btn-lg" href="#how">
+              <span data-i18n="hero.cta2">Voir comment ça marche</span>
+            </a>
+          </div>
+
+          <ul class="hero-trust reveal" aria-label="Points clés">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+              <span data-i18n="hero.trust1">Partenaires régulés</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <span data-i18n="hero.trust2">En quelques minutes</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+              <span data-i18n="hero.trust3">Sans compte bancaire pour envoyer</span>
+            </li>
+          </ul>
+        </div>
+        <div class="scroll-indicator reveal" aria-hidden="true">
+          <span></span>
+        </div>
+      </section>
+
+      <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+      <section class="section" id="how">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="how.eyebrow">Comment ça marche</span>
+            <h2 data-i18n="how.title">Trois étapes, quelques minutes</h2>
+            <p class="section-lead" data-i18n="how.lead">
+              Vous n'avez besoin que du Mobile Money et de l'e-mail de votre proche.
+            </p>
+          </div>
+
+          <div class="steps">
+            <article class="step-card reveal" data-tilt data-step="01">
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+              </span>
+              <h3 data-i18n="how.s1.t">Vous payez par Mobile Money</h3>
+              <p data-i18n="how.s1.d">
+                MTN, Moov, Orange, M-Pesa… Vous validez le paiement depuis votre téléphone,
+                comme un transfert Mobile Money habituel.
+              </p>
+            </article>
+
+            <article class="step-card reveal" data-tilt data-step="02">
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
+              </span>
+              <h3 data-i18n="how.s2.t">Wura convertit et livre</h3>
+              <p data-i18n="how.s2.d">
+                Votre paiement est converti et acheminé automatiquement vers un espace sécurisé
+                au nom de votre bénéficiaire. Aucune manipulation de votre part.
+              </p>
+            </article>
+
+            <article class="step-card reveal" data-tilt data-step="03">
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              </span>
+              <h3 data-i18n="how.s3.t">Le bénéficiaire reçoit des euros</h3>
+              <p data-i18n="how.s3.d">
+                Votre proche ouvre le lien reçu par e-mail et retire les fonds sur son compte
+                bancaire européen. Le virement arrive généralement sous un jour ouvré.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ CONVERTER ═══════════════ -->
+      <section class="section section-alt" id="estimate">
+        <div class="container converter-wrap">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="conv.eyebrow">Estimation</span>
+            <h2 data-i18n="conv.title">Combien votre proche reçoit</h2>
+          </div>
+
+          <div class="converter reveal">
+            <div class="converter-row">
+              <label class="converter-field">
+                <span class="converter-label" data-i18n="conv.youpay">Vous envoyez</span>
+                <div class="converter-input-wrap">
+                  <input
+                    id="convFrom"
+                    class="converter-input"
+                    type="text"
+                    inputmode="numeric"
+                    value="50 000"
+                    aria-label="Montant envoyé"
+                  />
+                  <span class="converter-cur">FCFA</span>
+                </div>
+              </label>
+
+              <span class="converter-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+
+              <label class="converter-field">
+                <span class="converter-label" data-i18n="conv.theyget">Le bénéficiaire reçoit environ</span>
+                <div class="converter-input-wrap converter-output">
+                  <input id="convTo" class="converter-input" type="text" value="—" readonly aria-label="Montant reçu estimé" />
+                  <span class="converter-cur">EUR</span>
+                </div>
+              </label>
+            </div>
+
+            <p class="converter-note">
+              <span class="converter-note-dot" id="rateDot" aria-hidden="true"></span>
+              <span id="rateNote" data-i18n="conv.indic">Estimation indicative. Le montant exact s'affiche dans l'application avant de payer.</span>
+            </p>
+
+            <a class="btn-primary btn-lg converter-cta" href="https://app.wura-pay.com/send" data-magnetic data-ripple>
+              <span data-i18n="conv.cta">Obtenir le montant exact</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ COUNTRIES ═══════════════ -->
+      <section class="section" id="countries">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="co.eyebrow">Couverture</span>
+            <h2 data-i18n="co.title">D'où vous envoyez, où l'on reçoit</h2>
+          </div>
+
+          <div class="coverage">
+            <article class="coverage-card reveal">
+              <header class="coverage-card-head">
+                <span class="coverage-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 6 8 10 12 14c4-4 4-8 0-12z"/><path d="M5 13c-2 3-1 6 2 7 1-3 0-5-2-7z"/><path d="M19 13c2 3 1 6-2 7-1-3 0-5 2-7z"/></svg>
+                </span>
+                <div>
+                  <h3 data-i18n="co.from.t">Vous payez depuis</h3>
+                  <p class="coverage-sub" data-i18n="co.from.d">Par Mobile Money ou transfert local, dans ces pays</p>
+                </div>
+              </header>
+              <ul class="chip-list" id="fromCountries"></ul>
+            </article>
+
+            <article class="coverage-card reveal">
+              <header class="coverage-card-head">
+                <span class="coverage-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+                </span>
+                <div>
+                  <h3 data-i18n="co.to.t">Le bénéficiaire reçoit</h3>
+                  <p class="coverage-sub" data-i18n="co.to.d">Sur un compte bancaire, dans l'une de ces devises</p>
+                </div>
+              </header>
+              <ul class="chip-list" id="toCurrencies"></ul>
+              <p class="coverage-more" data-i18n="co.more">Retrait bancaire pris en charge dans plus de 160 pays via notre partenaire suisse.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ WHY ═══════════════ -->
+      <section class="section section-alt" id="why">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="why.eyebrow">Pourquoi Wura</span>
+            <h2 data-i18n="why.title">Pensé pour la diaspora et leurs proches</h2>
+          </div>
+
+          <div class="advantages">
+            <article class="adv-card reveal" data-tilt>
+              <span class="adv-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span>
+              <h3 data-i18n="why.a1.t">Payez avec le Mobile Money</h3>
+              <p data-i18n="why.a1.d">Aucune carte bancaire, aucun compte bancaire nécessaire pour envoyer. Vous utilisez l'argent déjà sur votre téléphone.</p>
+            </article>
+            <article class="adv-card reveal" data-tilt>
+              <span class="adv-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12z"/></svg></span>
+              <h3 data-i18n="why.a2.t">Rapide et simple</h3>
+              <p data-i18n="why.a2.d">Un envoi se fait en quelques minutes, en quelques écrans. Pas de paperasse, pas d'agence à visiter.</p>
+            </article>
+            <article class="adv-card reveal" data-tilt>
+              <span class="adv-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+              <h3 data-i18n="why.a3.t">Sécurisé et transparent</h3>
+              <p data-i18n="why.a3.d">Le montant reçu s'affiche avant de payer. Les fonds sont acheminés via des partenaires régulés, sans mauvaise surprise.</p>
+            </article>
+            <article class="adv-card reveal" data-tilt>
+              <span class="adv-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <h3 data-i18n="why.a4.t">Frais bas</h3>
+              <p data-i18n="why.a4.d">Un coût réduit et clair sur chaque envoi, pour que le maximum arrive à votre proche.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ TRUST ═══════════════ -->
+      <section class="section" id="trust">
+        <div class="container trust-wrap reveal">
+          <span class="eyebrow" data-i18n="trust.eyebrow">Confiance</span>
+          <h2 data-i18n="trust.title">Une infrastructure sérieuse derrière chaque envoi</h2>
+          <p class="section-lead" data-i18n="trust.d">
+            Wura s'appuie sur des partenaires régulés pour la collecte Mobile Money et le versement
+            bancaire en Europe. Vos fonds ne restent jamais bloqués sans issue.
+          </p>
+          <div class="partners" id="partners"></div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ FAQ ═══════════════ -->
+      <section class="section section-alt" id="faq">
+        <div class="container faq-wrap">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="faq.eyebrow">Questions fréquentes</span>
+            <h2 data-i18n="faq.title">Ce que vous vous demandez</h2>
+          </div>
+          <div class="faq" id="faq-list"></div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ FINAL CTA ═══════════════ -->
+      <section class="section final-cta">
+        <div class="container final-cta-inner reveal">
+          <h2 data-i18n="fc.title">Prêt à envoyer votre premier transfert ?</h2>
+          <p data-i18n="fc.sub">Cela prend quelques minutes. Vous voyez le montant reçu avant de payer.</p>
+          <a class="btn-primary btn-lg" href="https://app.wura-pay.com/send" data-magnetic data-ripple>
+            <span data-i18n="fc.cta">Envoyer maintenant</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="#top" aria-label="Wura">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l3 12 3-9 3 9 3-12"/><path d="M18 6l3 12" opacity="0.55"/></svg>
+            </span>
+            <span class="brand-word">Wura</span>
+          </a>
+          <p class="footer-tag" data-i18n="foot.tag">Envoi d'argent d'Afrique vers l'Europe, par Mobile Money.</p>
+        </div>
+        <nav class="footer-links" aria-label="Liens">
+          <a href="https://app.wura-pay.com/send" data-i18n="foot.link.send">Envoyer de l'argent</a>
+          <a href="#how" data-i18n="nav.how">Comment ça marche</a>
+          <a href="#faq" data-i18n="nav.faq">Questions</a>
+          <a href="https://wura-pay.com" data-i18n="foot.link.site">Site principal</a>
+        </nav>
+      </div>
+      <div class="container footer-bottom">
+        <p class="footer-disclaimer" data-i18n="foot.disclaimer">
+          Wura n'est pas une banque. Les services de paiement et de versement sont fournis
+          via des partenaires régulés. Les montants et délais sont indicatifs et confirmés
+          dans l'application avant chaque envoi.
+        </p>
+        <p class="footer-rights"><span id="year">2026</span> Wura. <span data-i18n="foot.rights">Tous droits réservés.</span></p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.14/lenis.min.js"></script>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

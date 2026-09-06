@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://send.wura-pay.com/sitemap.xml
