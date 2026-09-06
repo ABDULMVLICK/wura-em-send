@@ -277,20 +277,6 @@
     b.addEventListener('click', () => applyLang(b.getAttribute('data-lang')))
   );
 
-  /* ─────────── Thème ─────────── */
-  const themeToggle = $('#themeToggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try {
-        localStorage.setItem('wura-theme', next);
-      } catch (e) {}
-      const meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.setAttribute('content', next === 'dark' ? '#0a0e1a' : '#ffffff');
-    });
-  }
-
   /* ─────────── Header scroll ─────────── */
   const header = $('#header');
   const onScroll = () => {
@@ -466,9 +452,6 @@
     const ctx = canvas.getContext('2d');
     let w, h, dpr, lines;
 
-    function isDark() {
-      return root.getAttribute('data-theme') === 'dark';
-    }
     function resize() {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       w = canvas.clientWidth;
@@ -495,7 +478,7 @@
     function draw(ts) {
       if (!running) return;
       ctx.clearRect(0, 0, w, h);
-      const alpha = isDark() ? 0.5 : 0.32;
+      const alpha = 0.2; // violet subtil sur fond porcelaine clair
       lines.forEach((ln) => {
         ctx.beginPath();
         const startX = w * (0.5 - ln.len / 2);
@@ -508,9 +491,9 @@
           else ctx.lineTo(x, y);
         }
         const grad = ctx.createLinearGradient(startX, 0, endX, 0);
-        grad.addColorStop(0, 'rgba(212,160,23,0)');
-        grad.addColorStop(0.5, `rgba(212,160,23,${alpha})`);
-        grad.addColorStop(1, 'rgba(212,160,23,0)');
+        grad.addColorStop(0, 'rgba(106,90,199,0)');
+        grad.addColorStop(0.5, `rgba(106,90,199,${alpha})`);
+        grad.addColorStop(1, 'rgba(106,90,199,0)');
         ctx.strokeStyle = grad;
         ctx.lineWidth = ln.width;
         ctx.stroke();
