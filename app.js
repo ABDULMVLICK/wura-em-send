@@ -41,7 +41,7 @@
         "Votre paiement est converti et acheminé automatiquement vers un espace sécurisé au nom de votre bénéficiaire. Aucune manipulation de votre part.",
       'how.s3.t': 'Le bénéficiaire reçoit des euros',
       'how.s3.d':
-        "Votre proche ouvre le lien reçu par e-mail et retire les fonds sur son compte bancaire européen. Le virement arrive généralement sous un jour ouvré.",
+        "Votre proche ouvre le lien reçu par e-mail et retire les fonds sur son compte bancaire européen. Le virement arrive généralement en quelques heures (sous une demi-journée).",
       'conv.eyebrow': 'Estimation',
       'conv.title': 'Combien votre proche reçoit',
       'conv.youpay': 'Vous envoyez',
@@ -114,7 +114,7 @@
         'Your payment is converted and routed automatically to a secure space in your recipient’s name. Nothing to handle on your side.',
       'how.s3.t': 'Your recipient receives euros',
       'how.s3.d':
-        'Your loved one opens the link received by email and withdraws the funds to their European bank account. The transfer usually arrives within one business day.',
+        'Your loved one opens the link received by email and withdraws the funds to their European bank account. The transfer usually arrives within a few hours (under half a day).',
       'conv.eyebrow': 'Estimate',
       'conv.title': 'How much your recipient gets',
       'conv.youpay': 'You send',
@@ -162,16 +162,16 @@
   const FAQ = {
     fr: [
       ['Ai-je besoin d’un compte bancaire pour envoyer ?', 'Non. Vous payez avec votre Mobile Money. Aucun compte ni carte bancaire n’est nécessaire côté expéditeur.'],
-      ['Comment mon proche reçoit-il l’argent ?', 'Il reçoit un lien par e-mail, l’ouvre, et retire les fonds sur son compte bancaire en euros. Le virement arrive généralement sous un jour ouvré.'],
-      ['Combien de temps prend un envoi ?', 'L’envoi lui-même se fait en quelques minutes. Le versement bancaire au bénéficiaire arrive habituellement sous un jour ouvré.'],
+      ['Comment mon proche reçoit-il l’argent ?', 'Il reçoit un lien par e-mail, l’ouvre, et retire les fonds sur son compte bancaire en euros. Le virement arrive généralement en quelques heures (sous une demi-journée).'],
+      ['Combien de temps prend un envoi ?', 'L’envoi lui-même se fait en quelques minutes. Le versement bancaire au bénéficiaire arrive habituellement en quelques heures (sous une demi-journée).'],
       ['Quels sont les frais ?', 'Les frais sont bas et affichés clairement : vous voyez le montant exact que votre proche recevra avant de valider le paiement.'],
       ['Est-ce sécurisé ?', 'Oui. La collecte Mobile Money et le versement bancaire passent par des partenaires régulés. Wura n’est pas une banque mais s’appuie sur une infrastructure sérieuse.'],
       ['De quoi ai-je besoin pour commencer ?', 'De votre numéro Mobile Money et de l’adresse e-mail de votre bénéficiaire. C’est tout.'],
     ],
     en: [
       ['Do I need a bank account to send?', 'No. You pay with your Mobile Money. No bank account or card is needed on the sender side.'],
-      ['How does my recipient get the money?', 'They receive a link by email, open it, and withdraw the funds to their bank account in euros. The transfer usually arrives within one business day.'],
-      ['How long does a transfer take?', 'The send itself takes a few minutes. The bank payout to the recipient usually arrives within one business day.'],
+      ['How does my recipient get the money?', 'They receive a link by email, open it, and withdraw the funds to their bank account in euros. The transfer usually arrives within a few hours (under half a day).'],
+      ['How long does a transfer take?', 'The send itself takes a few minutes. The bank payout to the recipient usually arrives within a few hours (under half a day).'],
       ['What are the fees?', 'Fees are low and shown clearly: you see the exact amount your recipient will get before you approve the payment.'],
       ['Is it secure?', 'Yes. Mobile Money collection and bank payout go through regulated partners. Wura is not a bank but relies on serious infrastructure.'],
       ['What do I need to get started?', 'Your Mobile Money number and your recipient’s email address. That’s it.'],
