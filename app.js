@@ -220,7 +220,6 @@
     ['🇸🇳', { fr: 'Sénégal', en: 'Senegal' }, 'Mobile Money'],
     ['🇨🇮', { fr: "Côte d'Ivoire", en: 'Ivory Coast' }, 'Mobile Money'],
     ['🇧🇫', { fr: 'Burkina Faso', en: 'Burkina Faso' }, 'Mobile Money'],
-    ['🇳🇬', { fr: 'Nigeria', en: 'Nigeria' }, 'Bank transfer'],
     ['🇰🇪', { fr: 'Kenya', en: 'Kenya' }, 'M-Pesa'],
     ['🇬🇭', { fr: 'Ghana', en: 'Ghana' }, 'Mobile Money'],
     ['🇨🇲', { fr: 'Cameroun', en: 'Cameroon' }, 'Mobile Money'],
@@ -232,7 +231,6 @@
     ['🇨🇩', { fr: 'RD Congo', en: 'DR Congo' }, 'Mobile Money'],
     ['🇬🇲', { fr: 'Gambie', en: 'Gambia' }, 'Mobile Money'],
     ['🇱🇷', { fr: 'Liberia', en: 'Liberia' }, 'Mobile Money'],
-    ['🇿🇦', { fr: 'Afrique du Sud', en: 'South Africa' }, 'Bank transfer'],
   ];
 
   // Devises de réception (Mt Pelerin off-ramp) — Europe d'abord
