@@ -14,17 +14,18 @@
   const I18N = {
     fr: {
       'nav.how': 'Comment ça marche',
+      'nav.convert': 'Convertir CFA→€',
       'nav.countries': 'Pays',
       'nav.why': 'Pourquoi Wura',
       'nav.faq': 'Questions',
       'cta.send': 'Envoyer maintenant',
       'marq.label': 'Vous payez depuis',
       'hero.badge': 'Afrique → Europe, par Mobile Money',
-      'hero.t1': "Envoyez de l'argent",
-      'hero.t2': "d'Afrique vers l'Europe.",
+      'hero.t1': 'Envoyez du franc CFA en euros.',
+      'hero.t2': "D'Afrique vers l'Europe.",
       'hero.t3': 'Payez avec Mobile Money.',
       'hero.sub':
-        "Pas besoin de compte bancaire pour envoyer. Vous payez avec votre Mobile Money, votre proche reçoit des euros sur son compte. En quelques minutes.",
+        "Envoyer du CFA en euro n'a jamais été aussi simple : vous payez avec votre Mobile Money, votre proche reçoit des euros sur son compte bancaire, en quelques minutes. Sans compte bancaire pour envoyer.",
       'hero.cta': "Envoyer de l'argent",
       'hero.cta2': 'Voir comment ça marche',
       'hero.trust1': 'Partenaires régulés',
@@ -49,6 +50,20 @@
       'conv.indic':
         "Estimation au taux fixe FCFA/euro, frais de service en sus. Le montant net exact s'affiche dans l'application avant de payer.",
       'conv.cta': 'Obtenir le montant exact',
+      'rate.eyebrow': 'Taux franc CFA → euro',
+      'rate.title': 'Convertir le franc CFA en euro',
+      'rate.lead':
+        'Le franc CFA (XOF) est arrimé à l’euro à parité fixe : 1 € = 655,957 FCFA, un taux qui ne bouge pas. Voici les montants les plus recherchés, déjà convertis en euros.',
+      'rate.caption': 'Conversion du franc CFA (XOF) en euro (EUR) au taux fixe de 655,957 FCFA pour 1 euro',
+      'rate.th1': 'Vous envoyez',
+      'rate.th2': '≈ en euros',
+      'rate.aside.t': 'Convertir, c’est bien. Envoyer, c’est mieux.',
+      'rate.aside.d':
+        'Un convertisseur affiche un taux. Wura va plus loin : vous envoyez réellement vos francs CFA et votre proche reçoit des euros sur son compte bancaire — sans bureau de change, sans compte bancaire pour envoyer.',
+      'rate.p1': 'Vous payez en Mobile Money (MTN, Moov, Orange, M-Pesa…)',
+      'rate.p2': 'Taux fixe, sans marge cachée sur le change',
+      'rate.p3': 'Le bénéficiaire reçoit des euros en quelques minutes',
+      'rate.cta': 'Envoyer du CFA en euro',
       'co.eyebrow': 'Couverture',
       'co.title': "D'où vous envoyez, où l'on reçoit",
       'co.from.t': 'Vous payez depuis',
@@ -87,17 +102,18 @@
     },
     en: {
       'nav.how': 'How it works',
+      'nav.convert': 'Convert CFA→€',
       'nav.countries': 'Countries',
       'nav.why': 'Why Wura',
       'nav.faq': 'FAQ',
       'cta.send': 'Send now',
       'marq.label': 'You pay from',
       'hero.badge': 'Africa → Europe, with Mobile Money',
-      'hero.t1': 'Send money',
-      'hero.t2': 'from Africa to Europe.',
+      'hero.t1': 'Send CFA francs as euros.',
+      'hero.t2': 'From Africa to Europe.',
       'hero.t3': 'Pay with Mobile Money.',
       'hero.sub':
-        'No bank account needed to send. You pay with your Mobile Money, your loved one receives euros in their bank account. In minutes.',
+        'Turning CFA into euros has never been simpler: you pay with your Mobile Money, your loved one receives euros in their bank account, in minutes. No bank account needed to send.',
       'hero.cta': 'Send money',
       'hero.cta2': 'See how it works',
       'hero.trust1': 'Regulated partners',
@@ -122,6 +138,20 @@
       'conv.indic':
         'Estimate at the fixed CFA/euro rate, service fee on top. The exact net amount is shown in the app before you pay.',
       'conv.cta': 'Get the exact amount',
+      'rate.eyebrow': 'CFA franc → euro rate',
+      'rate.title': 'Convert CFA francs to euros',
+      'rate.lead':
+        'The CFA franc (XOF) is pegged to the euro at a fixed rate: €1 = 655.957 FCFA — a rate that never moves. Here are the most-searched amounts, already converted to euros.',
+      'rate.caption': 'Conversion of CFA francs (XOF) to euros (EUR) at the fixed rate of 655.957 FCFA per euro',
+      'rate.th1': 'You send',
+      'rate.th2': '≈ in euros',
+      'rate.aside.t': 'Converting is good. Sending is better.',
+      'rate.aside.d':
+        'A converter just shows a rate. Wura goes further: you actually send your CFA francs and your loved one receives euros in their bank account — no exchange office, no bank account needed to send.',
+      'rate.p1': 'You pay with Mobile Money (MTN, Moov, Orange, M-Pesa…)',
+      'rate.p2': 'Fixed rate, no hidden margin on the exchange',
+      'rate.p3': 'The recipient receives euros within minutes',
+      'rate.cta': 'Send CFA as euros',
       'co.eyebrow': 'Coverage',
       'co.title': 'Where you send from, where they receive',
       'co.from.t': 'You pay from',
@@ -161,6 +191,9 @@
 
   const FAQ = {
     fr: [
+      ['Comment convertir le franc CFA en euro ?', 'Le franc CFA (XOF) est arrimé à l’euro à parité fixe : 1 € = 655,957 FCFA. Pour convertir, divisez le montant en francs CFA par 655,957. Avec Wura, vous n’avez rien à calculer : vous envoyez du CFA en payant par Mobile Money et votre proche reçoit directement des euros sur son compte bancaire.'],
+      ['Combien valent 100 000 francs CFA en euros ?', '100 000 FCFA = 152,45 € au taux fixe (655,957). À titre indicatif : 10 000 FCFA ≈ 15,24 €, 500 000 FCFA ≈ 762,25 € et 1 000 000 FCFA ≈ 1 524,49 €.'],
+      ['Où échanger des francs CFA en euros ?', 'En ligne, sans bureau de change ni déplacement. Avec Wura, vous payez en Mobile Money depuis l’Afrique et le bénéficiaire retire des euros sur son compte bancaire européen, en quelques minutes.'],
       ['Ai-je besoin d’un compte bancaire pour envoyer ?', 'Non. Vous payez avec votre Mobile Money. Aucun compte ni carte bancaire n’est nécessaire côté expéditeur.'],
       ['Comment mon proche reçoit-il l’argent ?', 'Il reçoit un lien par e-mail, l’ouvre, et retire les fonds sur son compte bancaire en euros. Le virement arrive généralement en quelques heures (sous une demi-journée).'],
       ['Combien de temps prend un envoi ?', 'L’envoi lui-même se fait en quelques minutes. Le versement bancaire au bénéficiaire arrive habituellement en quelques heures (sous une demi-journée).'],
@@ -169,6 +202,9 @@
       ['De quoi ai-je besoin pour commencer ?', 'De votre numéro Mobile Money et de l’adresse e-mail de votre bénéficiaire. C’est tout.'],
     ],
     en: [
+      ['How do I convert CFA francs to euros?', 'The CFA franc (XOF) is pegged to the euro at a fixed rate: €1 = 655.957 FCFA. To convert, divide the amount in CFA francs by 655.957. With Wura you don’t calculate anything: you send CFA by paying with Mobile Money and your loved one receives euros directly in their bank account.'],
+      ['How much is 100,000 CFA francs in euros?', '100,000 FCFA = €152.45 at the fixed rate (655.957). For reference: 10,000 FCFA ≈ €15.24, 500,000 FCFA ≈ €762.25 and 1,000,000 FCFA ≈ €1,524.49.'],
+      ['Where can I exchange CFA francs for euros?', 'Online, with no exchange office and no travel. With Wura you pay with Mobile Money from Africa and the recipient withdraws euros to their European bank account, within minutes.'],
       ['Do I need a bank account to send?', 'No. You pay with your Mobile Money. No bank account or card is needed on the sender side.'],
       ['How does my recipient get the money?', 'They receive a link by email, open it, and withdraw the funds to their bank account in euros. The transfer usually arrives within a few hours (under half a day).'],
       ['How long does a transfer take?', 'The send itself takes a few minutes. The bank payout to the recipient usually arrives within a few hours (under half a day).'],

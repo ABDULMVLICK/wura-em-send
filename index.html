@@ -11,10 +11,14 @@
       rel="stylesheet"
     />
 
-    <title>Wura — Envoyez de l'argent d'Afrique vers l'Europe par Mobile Money</title>
+    <title>Envoyer du CFA en euro — transfert Mobile Money vers l'Europe | Wura</title>
     <meta
       name="description"
-      content="Envoyez de l'argent d'Afrique vers l'Europe en payant avec votre Mobile Money. Sans compte bancaire côté expéditeur, en quelques minutes. Le bénéficiaire reçoit des euros sur son compte."
+      content="Envoyer du franc CFA en euro : payez en Mobile Money, votre proche reçoit des euros sur son compte bancaire. Convertisseur XOF→EUR au taux fixe (1 € = 655,957 FCFA) et transfert réel en quelques minutes, sans compte bancaire pour envoyer."
+    />
+    <meta
+      name="keywords"
+      content="envoyer du cfa en euro, convertir cfa en euro, franc cfa en euro, xof en eur, envoyer de l'argent afrique europe, transfert mobile money, taux franc cfa euro"
     />
     <meta name="author" content="Wura" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -26,16 +30,16 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Wura" />
     <meta property="og:url" content="https://send.wura-pay.com/" />
-    <meta property="og:title" content="Envoyez de l'argent d'Afrique vers l'Europe par Mobile Money" />
+    <meta property="og:title" content="Envoyer du CFA en euro — Mobile Money vers l'Europe" />
     <meta
       property="og:description"
-      content="Payez avec votre Mobile Money, votre proche reçoit des euros sur son compte bancaire. Sans compte bancaire côté expéditeur, en quelques minutes."
+      content="Payez en Mobile Money, votre proche reçoit des euros sur son compte. Taux fixe 1 € = 655,957 FCFA, transfert en quelques minutes."
     />
     <meta property="og:image" content="https://send.wura-pay.com/brand/wura-logo-1080.png" />
     <meta property="og:image:width" content="1080" />
     <meta property="og:image:height" content="1080" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Wura — Afrique → Europe par Mobile Money" />
+    <meta name="twitter:title" content="Envoyer du CFA en euro — Mobile Money vers l'Europe | Wura" />
     <meta
       name="twitter:description"
       content="Payez avec votre Mobile Money, votre proche reçoit des euros sur son compte bancaire."
@@ -52,6 +56,96 @@
         if (!l) l = (navigator.language || 'fr').toLowerCase().startsWith('en') ? 'en' : 'fr';
         document.documentElement.setAttribute('lang', l);
       } catch (e) {}
+    </script>
+
+    <!-- Données structurées : entité + service + FAQ (cible les « Autres questions » Google sur CFA→EUR) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://send.wura-pay.com/#org",
+          "name": "Wura",
+          "url": "https://wura-pay.com",
+          "logo": "https://send.wura-pay.com/brand/wura-logo-1080.png",
+          "sameAs": ["https://www.instagram.com/wura.pay", "https://www.tiktok.com/@wurapay"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://send.wura-pay.com/#website",
+          "url": "https://send.wura-pay.com/",
+          "name": "Wura — Envoyer du CFA en euro",
+          "inLanguage": "fr",
+          "publisher": { "@id": "https://send.wura-pay.com/#org" }
+        },
+        {
+          "@type": "FinancialService",
+          "@id": "https://send.wura-pay.com/#service",
+          "name": "Wura — Envoi de francs CFA en euros",
+          "url": "https://send.wura-pay.com/",
+          "description": "Service de transfert d'argent d'Afrique vers l'Europe : payez en Mobile Money (franc CFA), le bénéficiaire reçoit des euros sur son compte bancaire. Taux de conversion fixe 1 € = 655,957 FCFA.",
+          "areaServed": ["BJ", "SN", "CI", "BF", "GH", "CM", "KE", "TG", "ML"],
+          "provider": { "@id": "https://send.wura-pay.com/#org" },
+          "currenciesAccepted": "XOF",
+          "feesAndCommissionsSpecification": "Frais de service bas et affichés avant paiement."
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://send.wura-pay.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Comment convertir le franc CFA en euro ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Le franc CFA (XOF) est arrimé à l'euro à parité fixe : 1 € = 655,957 FCFA. Pour convertir, divisez le montant en francs CFA par 655,957. Avec Wura, vous n'avez rien à calculer : vous envoyez du CFA en payant par Mobile Money et votre proche reçoit directement des euros sur son compte bancaire."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Où échanger des francs CFA en euros ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "En ligne, sans bureau de change ni déplacement. Avec Wura, vous payez en Mobile Money depuis l'Afrique et le bénéficiaire retire des euros sur son compte bancaire européen, en quelques minutes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quelle est la valeur de 100 francs CFA en euros ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100 francs CFA valent environ 0,15 € au taux fixe (1 € = 655,957 FCFA). 1 000 FCFA ≈ 1,52 € et 10 000 FCFA ≈ 15,24 €."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Combien valent 100 000 francs CFA en euros ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100 000 francs CFA valent 152,45 € au taux fixe de 655,957 FCFA pour 1 €. 500 000 FCFA ≈ 762,25 € et 1 000 000 FCFA ≈ 1 524,49 €."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Ai-je besoin d'un compte bancaire pour envoyer du CFA en euro ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Non. Vous payez avec votre Mobile Money (MTN, Moov, Orange, M-Pesa…). Aucun compte ni carte bancaire n'est nécessaire côté expéditeur. Seul le bénéficiaire reçoit les euros sur son compte."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Combien de temps prend un envoi de CFA vers l'Europe ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "L'envoi se fait en quelques minutes. Le versement en euros sur le compte du bénéficiaire arrive généralement en quelques heures, sous une demi-journée."
+              }
+            }
+          ]
+        }
+      ]
+    }
     </script>
   </head>
   <body>
@@ -79,6 +173,7 @@
 
         <nav class="nav" aria-label="Navigation principale">
           <a href="#how" data-i18n="nav.how">Comment ça marche</a>
+          <a href="#convertir" data-i18n="nav.convert">Convertir CFA→€</a>
           <a href="#countries" data-i18n="nav.countries">Pays</a>
           <a href="#why" data-i18n="nav.why">Pourquoi Wura</a>
           <a href="#faq" data-i18n="nav.faq">Questions</a>
@@ -115,14 +210,15 @@
           </span>
 
           <h1 class="hero-title">
-            <span class="word" data-i18n="hero.t1">Envoyez de l'argent</span>
-            <span class="word" data-i18n="hero.t2">d'Afrique vers l'Europe.</span>
+            <span class="word" data-i18n="hero.t1">Envoyez du franc CFA en euros.</span>
+            <span class="word" data-i18n="hero.t2">D'Afrique vers l'Europe.</span>
             <span class="word text-gradient" data-i18n="hero.t3">Payez avec Mobile Money.</span>
           </h1>
 
           <p class="hero-sub reveal" data-i18n="hero.sub">
-            Pas besoin de compte bancaire pour envoyer. Vous payez avec votre Mobile Money,
-            votre proche reçoit des euros sur son compte. En quelques minutes.
+            Envoyer du CFA en euro n'a jamais été aussi simple : vous payez avec votre Mobile Money,
+            votre proche reçoit des euros sur son compte bancaire, en quelques minutes. Sans compte
+            bancaire pour envoyer.
           </p>
 
           <div class="hero-actions reveal">
@@ -253,6 +349,66 @@
               <span data-i18n="conv.cta">Obtenir le montant exact</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════ CONVERSION CFA→EUR (SEO : taux fixe + tableau montants recherchés) ═══════════════ -->
+      <section class="section" id="convertir">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow" data-i18n="rate.eyebrow">Taux franc CFA → euro</span>
+            <h2 data-i18n="rate.title">Convertir le franc CFA en euro</h2>
+            <p class="section-lead" data-i18n="rate.lead">
+              Le franc CFA (XOF) est arrimé à l'euro à parité fixe : <strong>1 € = 655,957 FCFA</strong>,
+              un taux qui ne bouge pas. Voici les montants les plus recherchés, déjà convertis en euros.
+            </p>
+          </div>
+
+          <div class="rate-grid">
+            <div class="rate-card reveal">
+              <table class="rate-table">
+                <caption class="sr-only" data-i18n="rate.caption">Conversion du franc CFA (XOF) en euro (EUR) au taux fixe de 655,957 FCFA pour 1 euro</caption>
+                <thead>
+                  <tr>
+                    <th scope="col" data-i18n="rate.th1">Vous envoyez</th>
+                    <th scope="col" data-i18n="rate.th2">≈ en euros</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1 000 FCFA</td><td>1,52 €</td></tr>
+                  <tr><td>3 000 FCFA</td><td>4,57 €</td></tr>
+                  <tr><td>5 000 FCFA</td><td>7,62 €</td></tr>
+                  <tr><td>10 000 FCFA</td><td>15,24 €</td></tr>
+                  <tr><td>15 000 FCFA</td><td>22,87 €</td></tr>
+                  <tr><td>20 000 FCFA</td><td>30,49 €</td></tr>
+                  <tr><td>50 000 FCFA</td><td>76,22 €</td></tr>
+                  <tr><td>100 000 FCFA</td><td>152,45 €</td></tr>
+                  <tr><td>200 000 FCFA</td><td>304,90 €</td></tr>
+                  <tr><td>500 000 FCFA</td><td>762,25 €</td></tr>
+                  <tr><td>1 000 000 FCFA</td><td>1 524,49 €</td></tr>
+                  <tr><td>1 500 000 FCFA</td><td>2 286,74 €</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <aside class="rate-aside reveal">
+              <h3 data-i18n="rate.aside.t">Convertir, c'est bien. Envoyer, c'est mieux.</h3>
+              <p data-i18n="rate.aside.d">
+                Un convertisseur affiche un taux. Wura va plus loin : vous <strong>envoyez réellement</strong>
+                vos francs CFA et votre proche <strong>reçoit des euros sur son compte bancaire</strong> —
+                sans bureau de change, sans compte bancaire pour envoyer.
+              </p>
+              <ul class="rate-points">
+                <li data-i18n="rate.p1">Vous payez en Mobile Money (MTN, Moov, Orange, M-Pesa…)</li>
+                <li data-i18n="rate.p2">Taux fixe, sans marge cachée sur le change</li>
+                <li data-i18n="rate.p3">Le bénéficiaire reçoit des euros en quelques minutes</li>
+              </ul>
+              <a class="btn-primary" href="https://app.wura-pay.com/send" data-magnetic data-ripple>
+                <span data-i18n="rate.cta">Envoyer du CFA en euro</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </aside>
           </div>
         </div>
       </section>
