@@ -21,7 +21,8 @@
       'cta.send': 'Envoyer maintenant',
       'marq.label': 'Vous payez depuis',
       'hero.badge': 'Afrique → Europe, par Mobile Money',
-      'hero.t1': 'Envoyez du franc CFA en euros.',
+      'hero.t1': 'Envoyez du franc CFA.',
+      'hero.recu': 'Reçu en',
       'hero.t2': "D'Afrique vers l'Europe.",
       'hero.t3': 'Payez avec Mobile Money.',
       'hero.sub':
@@ -96,6 +97,16 @@
       'foot.tag': "Envoi d'argent d'Afrique vers l'Europe, par Mobile Money.",
       'foot.link.send': "Envoyer de l'argent",
       'foot.link.site': 'Site principal',
+      'foot.h.res': 'Ressources',
+      'foot.faq': 'FAQ',
+      'foot.secu': 'Sécurité',
+      'foot.parr': 'Parrainage',
+      'foot.contact': 'Nous contacter',
+      'foot.h.legal': 'Légal',
+      'foot.cgu': 'CGU',
+      'foot.confid': 'Confidentialité',
+      'foot.licences': 'Licences & Autorisations',
+      'foot.rembours': 'Remboursement',
       'foot.disclaimer':
         "Wura n'est pas une banque. Les services de paiement et de versement sont fournis via des partenaires régulés. Les montants et délais sont indicatifs et confirmés dans l'application avant chaque envoi.",
       'foot.rights': 'Tous droits réservés.',
@@ -109,7 +120,8 @@
       'cta.send': 'Send now',
       'marq.label': 'You pay from',
       'hero.badge': 'Africa → Europe, with Mobile Money',
-      'hero.t1': 'Send CFA francs as euros.',
+      'hero.t1': 'Send CFA francs.',
+      'hero.recu': 'Received in',
       'hero.t2': 'From Africa to Europe.',
       'hero.t3': 'Pay with Mobile Money.',
       'hero.sub':
@@ -183,6 +195,16 @@
       'foot.tag': 'Send money from Africa to Europe, with Mobile Money.',
       'foot.link.send': 'Send money',
       'foot.link.site': 'Main site',
+      'foot.h.res': 'Resources',
+      'foot.faq': 'FAQ',
+      'foot.secu': 'Security',
+      'foot.parr': 'Referral',
+      'foot.contact': 'Contact us',
+      'foot.h.legal': 'Legal',
+      'foot.cgu': 'Terms',
+      'foot.confid': 'Privacy',
+      'foot.licences': 'Licenses & authorizations',
+      'foot.rembours': 'Refunds',
       'foot.disclaimer':
         'Wura is not a bank. Payment and payout services are provided via regulated partners. Amounts and timings are indicative and confirmed in the app before each transfer.',
       'foot.rights': 'All rights reserved.',
@@ -593,6 +615,31 @@
     });
   }
 
+  /* ─────────── Devise de réception rotative (euros · dollars · livres) ───────────
+     Montre que le proche peut recevoir en euros, dollars ou livres, en alternant le mot
+     toutes les ~2,6 s. Le mot #ccyRotate n'a pas de data-i18n : l'i18n et le SplitText du
+     titre n'y touchent pas ; seule cette fonction le pilote. `lang` est lu à chaque tick. */
+  function initCcyRotate() {
+    const el = document.getElementById('ccyRotate');
+    if (!el) return;
+    const WORDS = { fr: ['euros', 'dollars', 'livres sterling'], en: ['euros', 'dollars', 'pounds sterling'] };
+    let i = 0;
+    setInterval(() => {
+      i += 1;
+      const list = WORDS[lang] || WORDS.fr;
+      const next = list[i % list.length];
+      if (reduced) {
+        el.textContent = next;
+        return;
+      }
+      el.classList.add('ccy-out');
+      setTimeout(() => {
+        el.textContent = next;
+        el.classList.remove('ccy-out');
+      }, 260);
+    }, 2600);
+  }
+
   /* ─────────── Init ─────────── */
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
@@ -604,4 +651,5 @@
   initLenis();
   initPointer();
   initHeroCanvas();
+  initCcyRotate();
 })();

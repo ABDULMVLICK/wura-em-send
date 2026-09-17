@@ -498,6 +498,18 @@ p {
 .hero-title .text-gradient {
   color: var(--mint);
 }
+/* Ligne « Reçu en <devise> » — la devise alterne euros · dollars · livres (JS #ccyRotate). */
+.hero-ccy {
+  display: block;
+}
+.ccy-rotate {
+  display: inline-block;
+  transition: opacity 0.26s ease, transform 0.26s ease;
+}
+.ccy-rotate.ccy-out {
+  opacity: 0;
+  transform: translateY(-0.28em);
+}
 .hero-sub {
   margin-top: 30px;
   max-width: 52ch;
@@ -671,7 +683,9 @@ p {
 }
 .converter-row {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  /* minmax(0, 1fr) et non 1fr : sinon le min-content de l'<input> (son attribut `size` à 52px de
+     police ≈ 600px) gonfle chaque colonne et fait déborder la grille hors de la card. */
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: end;
   gap: 20px;
 }
@@ -1011,6 +1025,19 @@ p {
 }
 .footer-links a:hover {
   color: var(--mint);
+}
+.footer-cols {
+  display: flex;
+  gap: clamp(28px, 5vw, 64px);
+  flex-wrap: wrap;
+}
+.footer-col-head {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 2px;
 }
 .footer-bottom {
   padding-top: 28px;

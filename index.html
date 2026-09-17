@@ -220,15 +220,13 @@
           <circle cx="100" cy="100" r="50" />
         </svg>
         <div class="container hero-inner">
-          <span class="badge reveal">
-            <span class="badge-dot" aria-hidden="true"></span>
-            <span data-i18n="hero.badge">Afrique → Europe, par Mobile Money</span>
-          </span>
-
           <h1 class="hero-title">
-            <span class="word" data-i18n="hero.t1">Envoyez du franc CFA en euros.</span>
-            <span class="word" data-i18n="hero.t2">D'Afrique vers l'Europe.</span>
-            <span class="word text-gradient" data-i18n="hero.t3">Payez avec Mobile Money.</span>
+            <span class="word" data-i18n="hero.t1">Envoyez du franc CFA.</span>
+            <span class="hero-ccy reveal">
+              <span data-i18n="hero.recu">Reçu en</span>
+              <span class="ccy-rotate text-gradient" id="ccyRotate">euros</span>
+            </span>
+            <span class="word" data-i18n="hero.t3">Payez avec Mobile Money.</span>
           </h1>
 
           <p class="hero-sub reveal" data-i18n="hero.sub">
@@ -550,12 +548,28 @@
           </a>
           <p class="footer-tag" data-i18n="foot.tag">Envoi d'argent d'Afrique vers l'Europe, par Mobile Money.</p>
         </div>
-        <nav class="footer-links" aria-label="Liens">
-          <a href="https://app.wura-pay.com/send" data-i18n="foot.link.send">Envoyer de l'argent</a>
-          <a href="#how" data-i18n="nav.how">Comment ça marche</a>
-          <a href="#faq" data-i18n="nav.faq">Questions</a>
-          <a href="https://wura-pay.com" data-i18n="foot.link.site">Site principal</a>
-        </nav>
+        <div class="footer-cols">
+          <nav class="footer-links" aria-label="Liens">
+            <a href="https://app.wura-pay.com/send" data-i18n="foot.link.send">Envoyer de l'argent</a>
+            <a href="#how" data-i18n="nav.how">Comment ça marche</a>
+            <a href="#faq" data-i18n="nav.faq">Questions</a>
+            <a href="https://wura-pay.com" data-i18n="foot.link.site">Site principal</a>
+          </nav>
+          <nav class="footer-links" aria-label="Ressources">
+            <span class="footer-col-head" data-i18n="foot.h.res">Ressources</span>
+            <a href="https://www.wura-pay.com/faq" data-i18n="foot.faq">FAQ</a>
+            <a href="https://www.wura-pay.com/securite" data-i18n="foot.secu">Sécurité</a>
+            <a href="https://www.wura-pay.com/parrainage" data-i18n="foot.parr">Parrainage</a>
+            <a href="https://www.wura-pay.com/contact" data-i18n="foot.contact">Nous contacter</a>
+          </nav>
+          <nav class="footer-links" aria-label="Légal">
+            <span class="footer-col-head" data-i18n="foot.h.legal">Légal</span>
+            <a href="https://www.wura-pay.com/cgu" data-i18n="foot.cgu">CGU</a>
+            <a href="https://www.wura-pay.com/confidentialite" data-i18n="foot.confid">Confidentialité</a>
+            <a href="https://www.wura-pay.com/licences" data-i18n="foot.licences">Licences &amp; Autorisations</a>
+            <a href="https://www.wura-pay.com/remboursement" data-i18n="foot.rembours">Remboursement</a>
+          </nav>
+        </div>
       </div>
       <div class="container footer-bottom">
         <p class="footer-disclaimer" data-i18n="foot.disclaimer">
