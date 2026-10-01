@@ -71,7 +71,7 @@
       'co.from.d': 'Par Mobile Money ou transfert local, dans ces pays',
       'co.to.t': 'Le bénéficiaire reçoit',
       'co.to.d': "Sur un compte bancaire, dans l'une de ces devises",
-      'co.more': 'Retrait bancaire pris en charge dans plus de 160 pays via notre partenaire suisse.',
+      'co.more': 'Retrait bancaire pris en charge dans plus de 160 pays via nos partenaires régulés.',
       'why.eyebrow': 'Pourquoi Wura',
       'why.title': 'Pensé pour la diaspora et leurs proches',
       'why.a1.t': 'Payez avec le Mobile Money',
@@ -170,7 +170,7 @@
       'co.from.d': 'By Mobile Money or local transfer, in these countries',
       'co.to.t': 'Your recipient receives',
       'co.to.d': 'To a bank account, in one of these currencies',
-      'co.more': 'Bank withdrawal supported in 160+ countries via our Swiss partner.',
+      'co.more': 'Bank withdrawal supported in 160+ countries via our regulated partners.',
       'why.eyebrow': 'Why Wura',
       'why.title': 'Built for the diaspora and their families',
       'why.a1.t': 'Pay with Mobile Money',
@@ -236,7 +236,7 @@
     ],
   };
 
-  // Pays d'envoi (Fonbnk on-ramp, focus Afrique)
+  // Pays d'envoi (collecte Mobile Money, focus Afrique)
   const FROM = [
     ['🇧🇯', { fr: 'Bénin', en: 'Benin' }, 'Mobile Money'],
     ['🇸🇳', { fr: 'Sénégal', en: 'Senegal' }, 'Mobile Money'],
@@ -255,7 +255,7 @@
     ['🇱🇷', { fr: 'Liberia', en: 'Liberia' }, 'Mobile Money'],
   ];
 
-  // Devises de réception (Mt Pelerin off-ramp) — Europe d'abord
+  // Devises de réception (off-ramp partenaire) — Europe d'abord
   const TO = [
     ['🇪🇺', 'EUR', { fr: 'Euro', en: 'Euro' }],
     ['🇬🇧', 'GBP', { fr: 'Livre sterling', en: 'Pound' }],
@@ -415,18 +415,21 @@
   }
 
   /* ─────────── Partners (fonction hissée : appelée par applyLang) ─────────── */
+  // On ne nomme JAMAIS les partenaires régulés côté public : seul leur RÔLE est affiché, sous un
+  // libellé générique « Partenaire régulé ».
   const PARTNERS = [
-    ['Fonbnk', { fr: 'Collecte Mobile Money', en: 'Mobile Money collection' }],
-    ['Mt Pelerin', { fr: 'Versement bancaire (Suisse)', en: 'Bank payout (Switzerland)' }],
-    ['Privy', { fr: 'Portefeuilles sécurisés', en: 'Secure wallets' }],
+    { fr: 'Collecte Mobile Money', en: 'Mobile Money collection' },
+    { fr: 'Versement bancaire (Europe)', en: 'Bank payout (Europe)' },
+    { fr: 'Portefeuilles sécurisés', en: 'Secure wallets' },
   ];
   function renderPartners() {
     const partners = $('#partners');
     if (!partners) return;
     const shield =
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>';
+    const label = lang === 'en' ? 'Regulated partner' : 'Partenaire régulé';
     partners.innerHTML = PARTNERS.map(
-      (p) => `<span class="partner">${shield}<span>${p[0]}<small>${p[1][lang]}</small></span></span>`
+      (p) => `<span class="partner">${shield}<span>${label}<small>${p[lang]}</small></span></span>`
     ).join('');
   }
 
