@@ -77,7 +77,7 @@
       '#wura-consent-bar .wcb-accept:hover{background:#d7efe6}' +
       '#wura-consent-bar .wcb-refuse{background:transparent;color:#efedf2;border-color:rgba(239,237,242,0.28)}' +
       '#wura-consent-bar .wcb-refuse:hover{border-color:rgba(239,237,242,0.5)}' +
-      '@media(max-width:560px){#wura-consent-bar{flex-direction:column;align-items:stretch}' +
+      '@media(max-width:560px){#wura-consent-bar{flex-direction:column;align-items:stretch}#wura-consent-bar p{flex:0 0 auto}' +
       '#wura-consent-bar .wcb-actions{justify-content:stretch}#wura-consent-bar button{flex:1}}';
     var bar = document.createElement('div');
     bar.id = 'wura-consent-bar';
