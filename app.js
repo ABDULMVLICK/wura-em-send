@@ -113,7 +113,7 @@
       'foot.link.send': "Envoyer de l'argent",
       'foot.link.site': 'Site principal',
       'foot.h.res': 'Ressources',
-      'foot.faq': 'FAQ',
+      'foot.faq': 'FAQ complète',
       'foot.secu': 'Sécurité',
       'foot.parr': 'Parrainage',
       'foot.contact': 'Nous contacter',
@@ -227,7 +227,7 @@
       'foot.link.send': 'Send money',
       'foot.link.site': 'Main site',
       'foot.h.res': 'Resources',
-      'foot.faq': 'FAQ',
+      'foot.faq': 'Full FAQ',
       'foot.secu': 'Security',
       'foot.parr': 'Referral',
       'foot.contact': 'Contact us',
@@ -364,6 +364,9 @@
       const v = t(k);
       if (v) el.textContent = v;
     });
+    $$('.header-cta').forEach((el) =>
+      el.setAttribute('aria-label', lang === 'en' ? 'Send money now' : "Envoyer de l'argent maintenant")
+    );
     $$('.lang-btn').forEach((b) =>
       b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang))
     );

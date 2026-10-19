@@ -12,7 +12,7 @@
   --bg-3: #201d25;
   --ink: #efedf2; /* texte principal (off-white) */
   --muted: rgba(239, 237, 242, 0.62);
-  --faint: rgba(239, 237, 242, 0.4);
+  --faint: rgba(239, 237, 242, 0.62);
   --line: rgba(239, 237, 242, 0.12);
   --line-2: rgba(239, 237, 242, 0.22);
 
@@ -51,7 +51,7 @@
   --bg-2: #ffffff;
   --ink: #241f2b;
   --muted: rgba(36, 31, 43, 0.62);
-  --faint: rgba(36, 31, 43, 0.42);
+  --faint: rgba(36, 31, 43, 0.66);
   --line: rgba(36, 31, 43, 0.1);
   --line-2: rgba(36, 31, 43, 0.18);
   --mint-tint: rgba(106, 90, 199, 0.08);
