@@ -1191,3 +1191,23 @@ p {
 @media (max-width: 860px) {
   .rate-grid { grid-template-columns: 1fr; gap: 28px; }
 }
+
+/* ── Badges App Store / Google Play (style officiel : fond noir, encre blanche) ── */
+.app-badges { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; scroll-margin-top: 120px; }
+a.app-badge, a.app-badge:hover {
+  display: inline-flex; align-items: center; gap: 10px; box-sizing: border-box;
+  height: 54px; min-width: 176px; padding: 0 18px 0 14px; border-radius: 12px;
+  background: #000; color: #fff !important; -webkit-text-fill-color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.32) !important; text-decoration: none !important;
+  line-height: 1; opacity: 1;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+}
+a.app-badge:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.7) !important; }
+a.app-badge:focus-visible { outline: 2px solid #bee0d6; outline-offset: 3px; }
+a.app-badge::before, a.app-badge::after { display: none !important; }
+a.app-badge svg { width: 26px; height: 26px; flex: none; }
+a.app-badge > span { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; text-align: left; }
+a.app-badge small { display: block; font-size: 10.5px; font-weight: 500; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.86); line-height: 1; margin: 0; }
+a.app-badge small.caps { text-transform: uppercase; letter-spacing: 0.06em; font-size: 9.5px; }
+a.app-badge strong { display: block; font-family: -apple-system, 'SF Pro Display', Inter, system-ui, sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1; color: #fff; }
+.final-cta .app-badges { justify-content: center; }

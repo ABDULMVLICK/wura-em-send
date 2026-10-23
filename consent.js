@@ -15,12 +15,12 @@
     (window.dataLayer = window.dataLayer || []).push(arguments);
   }
 
-  /* ── Conversion : clic sur un CTA d'envoi (tous les CTA mènent au flux invité) ── */
+  /* ── Conversion : clic sur un CTA de téléchargement de l'app (badges stores + « Télécharger l'app ») ── */
   document.addEventListener(
     'click',
     function (e) {
       var t = e.target;
-      var a = t && t.closest ? t.closest('a[href*="app.wura-pay.com/send"]') : null;
+      var a = t && t.closest ? t.closest('a[data-app-cta], a[href*="apps.apple.com"], a[href*="play.google.com"]') : null;
       if (!a) return;
       if (CONVERSION_LABEL.indexOf('REMPLACER') !== -1) return; // pas encore configuré
       gtag('event', 'conversion', { send_to: CONVERSION_LABEL });

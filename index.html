@@ -8,7 +8,7 @@
       gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500,'region':['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']});
       try{if(localStorage.getItem('wura-consent')==='granted')gtag('consent','update',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});}catch(e){}
     </script>
-    <script src="/consent.js?v=2" defer></script>
+    <script src="/consent.js?v=3" defer></script>
     <!-- Google tag (gtag.js) — Google Ads -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -27,6 +27,7 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-itunes-app" content="app-id=6794987120" />
     <meta name="theme-color" content="#f3f1f6" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -116,6 +117,19 @@
           "feesAndCommissionsSpecification": "Frais de service bas et affichés avant paiement."
         },
         {
+          "@type": "MobileApplication",
+          "@id": "https://send.wura-pay.com/#app",
+          "name": "Wura",
+          "operatingSystem": "iOS, Android",
+          "applicationCategory": "FinanceApplication",
+          "description": "Application d'envoi d'argent d'Afrique vers l'Europe : payez en Mobile Money (franc CFA), le bénéficiaire reçoit des euros sur son compte bancaire.",
+          "downloadUrl": ["https://apps.apple.com/app/id6794987120", "https://play.google.com/store/apps/details?id=com.wurapay.app"],
+          "installUrl": ["https://apps.apple.com/app/id6794987120", "https://play.google.com/store/apps/details?id=com.wurapay.app"],
+          "sameAs": ["https://apps.apple.com/app/id6794987120", "https://play.google.com/store/apps/details?id=com.wurapay.app"],
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+          "publisher": { "@id": "https://send.wura-pay.com/#org" }
+        },
+        {
           "@type": "FAQPage",
           "@id": "https://send.wura-pay.com/#faq",
           "mainEntity": [
@@ -132,7 +146,7 @@
               "name": "Où échanger des francs CFA en euros ?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "En ligne, sans bureau de change ni déplacement. Avec Wura, vous payez en Mobile Money depuis l'Afrique et le bénéficiaire retire des euros sur son compte bancaire européen, en quelques minutes."
+                "text": "Depuis l'application Wura (iPhone et Android), sans bureau de change ni déplacement : vous payez en Mobile Money depuis l'Afrique et le bénéficiaire retire des euros sur son compte bancaire européen, en quelques minutes."
               }
             },
             {
@@ -209,9 +223,9 @@
             <button type="button" class="lang-btn" data-lang="fr" aria-pressed="true">FR</button>
             <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
           </div>
-          <a class="btn-primary header-cta" aria-label="Envoyer de l'argent maintenant" href="https://app.wura-pay.com/send?dest=bank" data-magnetic data-ripple>
-            <span data-i18n="cta.send">Envoyer maintenant</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <a class="btn-primary header-cta" aria-label="Télécharger l’application Wura" data-i18n-aria="cta.send.aria" href="#download" data-app-cta data-magnetic data-ripple>
+            <span data-i18n="cta.send">Télécharger l’app</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
           </a>
         </div>
       </div>
@@ -245,8 +259,8 @@
           </p>
 
           <div class="hero-actions reveal">
-            <a class="btn-primary btn-lg" href="https://app.wura-pay.com/send?dest=bank" data-magnetic data-ripple>
-              <span data-i18n="hero.cta">Envoyer de l'argent</span>
+            <a class="btn-primary btn-lg" href="#download" data-app-cta data-magnetic data-ripple>
+              <span data-i18n="hero.cta">Télécharger l’app</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
             <a class="btn-glass btn-lg" href="#how">
@@ -416,8 +430,8 @@
               <span id="rateNote" data-i18n="conv.indic">Estimation indicative. Le montant exact s'affiche dans l'application avant de payer.</span>
             </p>
 
-            <a class="btn-primary btn-lg converter-cta" href="https://app.wura-pay.com/send?dest=bank" data-magnetic data-ripple>
-              <span data-i18n="conv.cta">Obtenir le montant exact</span>
+            <a class="btn-primary btn-lg converter-cta" href="#download" data-app-cta data-magnetic data-ripple>
+              <span data-i18n="conv.cta">Voir le montant exact dans l’app</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
           </div>
@@ -475,8 +489,8 @@
                 <li data-i18n="rate.p2">Taux fixe, sans marge cachée sur le change</li>
                 <li data-i18n="rate.p3">Le bénéficiaire reçoit des euros en quelques minutes</li>
               </ul>
-              <a class="btn-primary" href="https://app.wura-pay.com/send?dest=bank" data-magnetic data-ripple>
-                <span data-i18n="rate.cta">Envoyer du CFA en euro</span>
+              <a class="btn-primary" href="#download" data-app-cta data-magnetic data-ripple>
+                <span data-i18n="rate.cta">Envoyer avec l’app Wura</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a>
             </aside>
@@ -581,14 +595,14 @@
       </section>
 
       <!-- ═══════════════ FINAL CTA ═══════════════ -->
-      <section class="section final-cta">
+      <section class="section final-cta" id="download">
         <div class="container final-cta-inner reveal">
-          <h2 data-i18n="fc.title">Prêt à envoyer votre premier transfert ?</h2>
-          <p data-i18n="fc.sub">Cela prend quelques minutes. Vous voyez le montant reçu avant de payer.</p>
-          <a class="btn-primary btn-lg" href="https://app.wura-pay.com/send?dest=bank" data-magnetic data-ripple>
-            <span data-i18n="fc.cta">Envoyer maintenant</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <h2 data-i18n="fc.title">Téléchargez Wura, envoyez en quelques minutes</h2>
+          <p data-i18n="fc.sub">L’application Wura est disponible sur iPhone et Android. Vous voyez le montant reçu avant de payer.</p>
+          <div class="app-badges">
+            <a class="app-badge" href="https://apps.apple.com/app/id6794987120" target="_blank" rel="noopener" aria-label="Télécharger Wura dans l’App Store (iPhone)" data-i18n-aria="badge.ios.aria"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small data-i18n="badge.ios.s">Télécharger dans</small><strong data-i18n="badge.ios.b">l’App Store</strong></span></a>
+            <a class="app-badge" href="https://play.google.com/store/apps/details?id=com.wurapay.app" target="_blank" rel="noopener" aria-label="Télécharger Wura sur Google Play (Android)" data-i18n-aria="badge.and.aria"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M3.6 1.8 13.4 12 3.6 22.2c-.4-.2-.6-.7-.6-1.2V3c0-.5.2-1 .6-1.2z"/><path fill="#34A853" d="M16.7 8.7 13.4 12 3.6 1.8c.3-.2.8-.2 1.2 0l11.9 6.9z"/><path fill="#FBBC04" d="M20.4 10.8c.8.5.8 1.9 0 2.4l-3.7 2.1-3.3-3.3 3.3-3.3 3.7 2.1z"/><path fill="#EA4335" d="M13.4 12l3.3 3.3-11.9 6.9c-.4.2-.9.2-1.2 0L13.4 12z"/></svg><span><small class="caps" data-i18n="badge.and.s">Disponible sur</small><strong data-i18n="badge.and.b">Google Play</strong></span></a>
+          </div>
         </div>
       </section>
     </main>
@@ -607,7 +621,7 @@
         </div>
         <div class="footer-cols">
           <nav class="footer-links" aria-label="Liens">
-            <a href="https://app.wura-pay.com/send?dest=bank" data-i18n="foot.link.send">Envoyer de l'argent</a>
+            <a href="#download" data-app-cta data-i18n="foot.link.send">Télécharger l’application</a>
             <a href="#how" data-i18n="nav.how">Comment ça marche</a>
             <a href="#faq" data-i18n="nav.faq">Questions</a>
             <a href="https://wura-pay.com" data-i18n="foot.link.site">Site principal</a>

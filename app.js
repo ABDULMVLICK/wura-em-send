@@ -10,6 +10,33 @@
   const $ = (s, c) => (c || document).querySelector(s);
   const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
 
+  /* ─────────── CTA « Télécharger l'app » intelligent ───────────
+     href de repli = #download (badges App Store + Google Play), fonctionne sans JS.
+     iPhone/iPad → App Store, Android → Google Play, ordinateur → défilement vers #download. */
+  const STORE_IOS = 'https://apps.apple.com/app/id6794987120';
+  const STORE_ANDROID = 'https://play.google.com/store/apps/details?id=com.wurapay.app';
+  const ua = navigator.userAgent || '';
+  const isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  const storeHref = isIOS ? STORE_IOS : /Android/i.test(ua) ? STORE_ANDROID : null;
+  function toStore(a) {
+    a.setAttribute('href', storeHref);
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener');
+  }
+  if (storeHref) {
+    $$('a[data-app-cta]').forEach(toStore);
+    document.addEventListener(
+      'click',
+      (e) => {
+        const a = e.target && e.target.closest ? e.target.closest('a[data-app-cta]') : null;
+        if (!a) return;
+        toStore(a);
+        e.stopPropagation(); // pas de défilement d'ancre : le navigateur ouvre le store
+      },
+      true
+    );
+  }
+
   /* ─────────── i18n ─────────── */
   const I18N = {
     fr: {
@@ -18,7 +45,8 @@
       'nav.countries': 'Pays',
       'nav.why': 'Pourquoi Wura',
       'nav.faq': 'Questions',
-      'cta.send': 'Envoyer maintenant',
+      'cta.send': 'Télécharger l’app',
+      'cta.send.aria': 'Télécharger l’application Wura',
       'marq.label': 'Vous payez depuis',
       'hero.badge': 'Afrique → Europe, par Mobile Money',
       'hero.t1': 'Envoyez du franc CFA.',
@@ -27,7 +55,7 @@
       'hero.t3': 'Payez avec Mobile Money.',
       'hero.sub':
         "Envoyer du CFA en euro n'a jamais été aussi simple : vous payez avec votre Mobile Money, votre proche reçoit des euros sur son compte bancaire, en quelques minutes. Sans compte bancaire pour envoyer.",
-      'hero.cta': "Envoyer de l'argent",
+      'hero.cta': 'Télécharger l’app',
       'hero.cta2': 'Voir comment ça marche',
       'hero.trust1': 'Partenaires régulés',
       'hero.trust2': 'En quelques minutes',
@@ -65,7 +93,7 @@
       'conv.theyget': 'Le bénéficiaire reçoit environ',
       'conv.indic':
         "Estimation au taux fixe FCFA/euro, frais de service en sus. Le montant net exact s'affiche dans l'application avant de payer.",
-      'conv.cta': 'Obtenir le montant exact',
+      'conv.cta': 'Voir le montant exact dans l’app',
       'rate.eyebrow': 'Taux franc CFA → euro',
       'rate.title': 'Convertir le franc CFA en euro',
       'rate.lead':
@@ -79,7 +107,7 @@
       'rate.p1': 'Vous payez en Mobile Money (MTN, Moov, Orange, M-Pesa…)',
       'rate.p2': 'Taux fixe, sans marge cachée sur le change',
       'rate.p3': 'Le bénéficiaire reçoit des euros en quelques minutes',
-      'rate.cta': 'Envoyer du CFA en euro',
+      'rate.cta': 'Envoyer avec l’app Wura',
       'co.eyebrow': 'Couverture',
       'co.title': "D'où vous envoyez, où l'on reçoit",
       'co.from.t': 'Vous payez depuis',
@@ -106,11 +134,16 @@
         "Wura s'appuie sur des partenaires régulés pour la collecte Mobile Money et le versement bancaire en Europe. Vos fonds ne restent jamais bloqués sans issue.",
       'faq.eyebrow': 'Questions fréquentes',
       'faq.title': 'Ce que vous vous demandez',
-      'fc.title': 'Prêt à envoyer votre premier transfert ?',
-      'fc.sub': 'Cela prend quelques minutes. Vous voyez le montant reçu avant de payer.',
-      'fc.cta': 'Envoyer maintenant',
+      'fc.title': 'Téléchargez Wura, envoyez en quelques minutes',
+      'fc.sub': 'L’application Wura est disponible sur iPhone et Android. Vous voyez le montant reçu avant de payer.',
+      'badge.ios.s': 'Télécharger dans',
+      'badge.ios.b': 'l’App Store',
+      'badge.ios.aria': 'Télécharger Wura dans l’App Store (iPhone)',
+      'badge.and.s': 'Disponible sur',
+      'badge.and.b': 'Google Play',
+      'badge.and.aria': 'Télécharger Wura sur Google Play (Android)',
       'foot.tag': "Envoi d'argent d'Afrique vers l'Europe, par Mobile Money.",
-      'foot.link.send': "Envoyer de l'argent",
+      'foot.link.send': 'Télécharger l’application',
       'foot.link.site': 'Site principal',
       'foot.h.res': 'Ressources',
       'foot.faq': 'FAQ complète',
@@ -133,7 +166,8 @@
       'nav.countries': 'Countries',
       'nav.why': 'Why Wura',
       'nav.faq': 'FAQ',
-      'cta.send': 'Send now',
+      'cta.send': 'Get the app',
+      'cta.send.aria': 'Download the Wura app',
       'marq.label': 'You pay from',
       'hero.badge': 'Africa → Europe, with Mobile Money',
       'hero.t1': 'Send CFA francs.',
@@ -142,7 +176,7 @@
       'hero.t3': 'Pay with Mobile Money.',
       'hero.sub':
         'Turning CFA into euros has never been simpler: you pay with your Mobile Money, your loved one receives euros in their bank account, in minutes. No bank account needed to send.',
-      'hero.cta': 'Send money',
+      'hero.cta': 'Get the app',
       'hero.cta2': 'See how it works',
       'hero.trust1': 'Regulated partners',
       'hero.trust2': 'In minutes',
@@ -180,7 +214,7 @@
       'conv.theyget': 'Recipient gets about',
       'conv.indic':
         'Estimate at the fixed CFA/euro rate, service fee on top. The exact net amount is shown in the app before you pay.',
-      'conv.cta': 'Get the exact amount',
+      'conv.cta': 'See the exact amount in the app',
       'rate.eyebrow': 'CFA franc → euro rate',
       'rate.title': 'Convert CFA francs to euros',
       'rate.lead':
@@ -194,7 +228,7 @@
       'rate.p1': 'You pay with Mobile Money (MTN, Moov, Orange, M-Pesa…)',
       'rate.p2': 'Fixed rate, no hidden margin on the exchange',
       'rate.p3': 'The recipient receives euros within minutes',
-      'rate.cta': 'Send CFA as euros',
+      'rate.cta': 'Send with the Wura app',
       'co.eyebrow': 'Coverage',
       'co.title': 'Where you send from, where they receive',
       'co.from.t': 'You pay from',
@@ -220,11 +254,16 @@
         'Wura relies on regulated partners for Mobile Money collection and bank payout in Europe. Your funds are never left stuck with no way out.',
       'faq.eyebrow': 'Frequently asked',
       'faq.title': 'What you are wondering',
-      'fc.title': 'Ready to send your first transfer?',
-      'fc.sub': 'It takes a few minutes. You see the received amount before you pay.',
-      'fc.cta': 'Send now',
+      'fc.title': 'Get Wura, send in a few minutes',
+      'fc.sub': 'The Wura app is available on iPhone and Android. You see the received amount before you pay.',
+      'badge.ios.s': 'Download on the',
+      'badge.ios.b': 'App Store',
+      'badge.ios.aria': 'Download Wura on the App Store (iPhone)',
+      'badge.and.s': 'Get it on',
+      'badge.and.b': 'Google Play',
+      'badge.and.aria': 'Get Wura on Google Play (Android)',
       'foot.tag': 'Send money from Africa to Europe, with Mobile Money.',
-      'foot.link.send': 'Send money',
+      'foot.link.send': 'Download the app',
       'foot.link.site': 'Main site',
       'foot.h.res': 'Resources',
       'foot.faq': 'Full FAQ',
@@ -247,24 +286,24 @@
     fr: [
       ['Comment convertir le franc CFA en euro ?', 'Le franc CFA (XOF) est arrimé à l’euro à parité fixe : 1 € = 655,957 FCFA. Pour convertir, divisez le montant en francs CFA par 655,957. Avec Wura, vous n’avez rien à calculer : vous envoyez du CFA en payant par Mobile Money et votre proche reçoit directement des euros sur son compte bancaire.'],
       ['Combien valent 100 000 francs CFA en euros ?', '100 000 FCFA = 152,45 € au taux fixe (655,957). À titre indicatif : 10 000 FCFA ≈ 15,24 €, 500 000 FCFA ≈ 762,25 € et 1 000 000 FCFA ≈ 1 524,49 €.'],
-      ['Où échanger des francs CFA en euros ?', 'En ligne, sans bureau de change ni déplacement. Avec Wura, vous payez en Mobile Money depuis l’Afrique et le bénéficiaire retire des euros sur son compte bancaire européen, en quelques minutes.'],
+      ['Où échanger des francs CFA en euros ?', 'Depuis l’application Wura (iPhone et Android), sans bureau de change ni déplacement : vous payez en Mobile Money depuis l’Afrique et le bénéficiaire retire des euros sur son compte bancaire européen, en quelques minutes.'],
       ['Ai-je besoin d’un compte bancaire pour envoyer ?', 'Non. Vous payez avec votre Mobile Money. Aucun compte ni carte bancaire n’est nécessaire côté expéditeur.'],
       ['Comment mon proche reçoit-il l’argent ?', 'Il reçoit un lien par e-mail, l’ouvre, et retire les fonds sur son compte bancaire en euros. Le virement arrive généralement en quelques heures (sous une demi-journée).'],
       ['Combien de temps prend un envoi ?', 'L’envoi lui-même se fait en quelques minutes. Le versement bancaire au bénéficiaire arrive habituellement en quelques heures (sous une demi-journée).'],
       ['Quels sont les frais ?', 'Les frais sont bas et affichés clairement : vous voyez le montant exact que votre proche recevra avant de valider le paiement.'],
       ['Est-ce sécurisé ?', 'Oui. La collecte Mobile Money et le versement bancaire passent par des partenaires régulés. Wura n’est pas une banque mais s’appuie sur une infrastructure sérieuse.'],
-      ['De quoi ai-je besoin pour commencer ?', 'De votre numéro Mobile Money et de l’adresse e-mail de votre bénéficiaire. C’est tout.'],
+      ['De quoi ai-je besoin pour commencer ?', 'De l’application Wura (App Store ou Google Play), de votre numéro Mobile Money et de l’adresse e-mail de votre bénéficiaire. C’est tout.'],
     ],
     en: [
       ['How do I convert CFA francs to euros?', 'The CFA franc (XOF) is pegged to the euro at a fixed rate: €1 = 655.957 FCFA. To convert, divide the amount in CFA francs by 655.957. With Wura you don’t calculate anything: you send CFA by paying with Mobile Money and your loved one receives euros directly in their bank account.'],
       ['How much is 100,000 CFA francs in euros?', '100,000 FCFA = €152.45 at the fixed rate (655.957). For reference: 10,000 FCFA ≈ €15.24, 500,000 FCFA ≈ €762.25 and 1,000,000 FCFA ≈ €1,524.49.'],
-      ['Where can I exchange CFA francs for euros?', 'Online, with no exchange office and no travel. With Wura you pay with Mobile Money from Africa and the recipient withdraws euros to their European bank account, within minutes.'],
+      ['Where can I exchange CFA francs for euros?', 'From the Wura app (iPhone and Android), with no exchange office and no travel: you pay with Mobile Money from Africa and the recipient withdraws euros to their European bank account, within minutes.'],
       ['Do I need a bank account to send?', 'No. You pay with your Mobile Money. No bank account or card is needed on the sender side.'],
       ['How does my recipient get the money?', 'They receive a link by email, open it, and withdraw the funds to their bank account in euros. The transfer usually arrives within a few hours (under half a day).'],
       ['How long does a transfer take?', 'The send itself takes a few minutes. The bank payout to the recipient usually arrives within a few hours (under half a day).'],
       ['What are the fees?', 'Fees are low and shown clearly: you see the exact amount your recipient will get before you approve the payment.'],
       ['Is it secure?', 'Yes. Mobile Money collection and bank payout go through regulated partners. Wura is not a bank but relies on serious infrastructure.'],
-      ['What do I need to get started?', 'Your Mobile Money number and your recipient’s email address. That’s it.'],
+      ['What do I need to get started?', 'The Wura app (App Store or Google Play), your Mobile Money number and your recipient’s email address. That’s it.'],
     ],
   };
 
@@ -364,9 +403,7 @@
       const v = t(k);
       if (v) el.textContent = v;
     });
-    $$('.header-cta').forEach((el) =>
-      el.setAttribute('aria-label', lang === 'en' ? 'Send money now' : "Envoyer de l'argent maintenant")
-    );
+    $$('[data-i18n-aria]').forEach((el) => el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria'))));
     $$('.lang-btn').forEach((b) =>
       b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang))
     );

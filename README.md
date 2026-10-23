@@ -1,11 +1,14 @@
 # Wura — Landing d'envoi (send.wura-pay.com)
 
 Page marketing dédiée : **envoi d'argent Afrique → Europe par Mobile Money**.
-Lien à partager pour commercialiser la version web avant la mise en ligne sur les stores.
+Lien à partager pour faire télécharger l'application Wura (App Store / Google Play).
 
 Site statique, zéro build : `index.html` + `styles.css` + `app.js` + `brand/`.
 Charte reprise du design system de la landing principale (or #d4a017, Space Grotesk + Inter,
-dark/light, GSAP + Lenis). Bilingue FR/EN. CTA → `https://app.wura-pay.com/send`.
+dark/light, GSAP + Lenis). Bilingue FR/EN. Tous les CTA mènent au téléchargement de l'app :
+`data-app-cta` (iPhone → App Store, Android → Google Play, ordinateur → section `#download`
+avec les deux badges). Liens : `https://apps.apple.com/app/id6794987120` et
+`https://play.google.com/store/apps/details?id=com.wurapay.app`. Aucun lien vers l'envoi web.
 
 ## Aperçu local
 
