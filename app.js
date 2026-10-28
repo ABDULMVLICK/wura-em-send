@@ -326,21 +326,13 @@
     ['🇱🇷', { fr: 'Liberia', en: 'Liberia' }, 'Mobile Money'],
   ];
 
-  // Devises de réception (off-ramp partenaire) — Europe d'abord
+  // Devises de réception RÉELLEMENT livrées (28/10) : euro, livre, franc suisse, dollar US et canadien.
   const TO = [
     ['🇪🇺', 'EUR', { fr: 'Euro', en: 'Euro' }],
     ['🇬🇧', 'GBP', { fr: 'Livre sterling', en: 'Pound' }],
     ['🇨🇭', 'CHF', { fr: 'Franc suisse', en: 'Swiss franc' }],
     ['🇺🇸', 'USD', { fr: 'Dollar US', en: 'US dollar' }],
     ['🇨🇦', 'CAD', { fr: 'Dollar canadien', en: 'Canadian dollar' }],
-    ['🇸🇪', 'SEK', { fr: 'Couronne suédoise', en: 'Swedish krona' }],
-    ['🇳🇴', 'NOK', { fr: 'Couronne norvégienne', en: 'Norwegian krone' }],
-    ['🇩🇰', 'DKK', { fr: 'Couronne danoise', en: 'Danish krone' }],
-    ['🇵🇱', 'PLN', { fr: 'Zloty polonais', en: 'Polish zloty' }],
-    ['🇨🇿', 'CZK', { fr: 'Couronne tchèque', en: 'Czech koruna' }],
-    ['🇦🇺', 'AUD', { fr: 'Dollar australien', en: 'Australian dollar' }],
-    ['🇯🇵', 'JPY', { fr: 'Yen', en: 'Yen' }],
-    ['🇸🇬', 'SGD', { fr: 'Dollar de Singapour', en: 'Singapore dollar' }],
   ];
 
   let lang = root.getAttribute('lang') === 'en' ? 'en' : 'fr';
