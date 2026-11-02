@@ -1211,3 +1211,41 @@ a.app-badge small { display: block; font-size: 10.5px; font-weight: 500; letter-
 a.app-badge small.caps { text-transform: uppercase; letter-spacing: 0.06em; font-size: 9.5px; }
 a.app-badge strong { display: block; font-family: -apple-system, 'SF Pro Display', Inter, system-ui, sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1; color: #fff; }
 .final-cta .app-badges { justify-content: center; }
+
+/* ═══════════════ CARTE VISA VIRTUELLE (dessinée comme dans l'app) ═══════════════ */
+.card-split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+.card-copy h2 { margin-bottom: 22px; }
+.card-copy .section-lead { margin-bottom: 26px; }
+.card-points { list-style: none; padding: 0; margin: 0 0 32px; display: grid; gap: 12px; }
+.card-points li { position: relative; padding-left: 30px; color: var(--ink); }
+.card-points li::before {
+  content: ''; position: absolute; left: 0; top: 0.2em; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--mint-tint); box-shadow: inset 0 0 0 1px var(--mint);
+}
+.card-points li::after {
+  content: ''; position: absolute; left: 6px; top: calc(0.2em + 4px); width: 5px; height: 8px;
+  border: solid var(--mint); border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+.card-note { margin-top: 16px; font-size: 14px; color: var(--muted); }
+.vcard-wrap { justify-self: center; width: min(440px, 86vw); padding: 40px 0; }
+.vcard {
+  position: relative; width: 100%; max-width: 100%; aspect-ratio: 1.6; border-radius: 24px; overflow: hidden;
+  background: #1e1a33; border: 1px solid var(--line-2); color: #fff;
+  padding: clamp(18px, 4vw, 28px); display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.75), 0 0 80px -20px var(--violet-glow);
+  transform: rotate(-4deg); animation: vcard-float 6s ease-in-out infinite;
+}
+.vcard-orb { position: absolute; border-radius: 50%; pointer-events: none; }
+.vcard-orb--v { right: -18%; top: -34%; width: 64%; aspect-ratio: 1; background: var(--violet); opacity: 0.6; }
+.vcard-orb--s { left: -12%; bottom: -46%; width: 58%; aspect-ratio: 1; background: #8fb9a8; opacity: 0.28; }
+.vcard > div { position: relative; }
+.vcard-top, .vcard-bottom { display: flex; justify-content: space-between; align-items: center; }
+.vcard-brand { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
+.vcard-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 10px; border-radius: var(--r-pill); background: rgba(255, 255, 255, 0.12); }
+.vcard-balance small { display: block; font-size: 12px; opacity: 0.7; margin-bottom: 2px; }
+.vcard-balance strong { font-family: var(--font-display); font-weight: 600; font-size: clamp(26px, 5vw, 36px); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.vcard-num { font-size: 13px; letter-spacing: 0.08em; opacity: 0.85; font-variant-numeric: tabular-nums; }
+.vcard-visa { font-family: var(--font-display); font-weight: 800; font-style: italic; font-size: 24px; letter-spacing: 0.02em; }
+@keyframes vcard-float { 0%, 100% { transform: rotate(-4deg) translateY(0); } 50% { transform: rotate(-2.5deg) translateY(-10px); } }
+@media (max-width: 900px) { .card-split { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .vcard { animation: none; } }
