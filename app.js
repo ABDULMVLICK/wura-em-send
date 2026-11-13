@@ -710,7 +710,6 @@
   initReveal();
   animateHeroIntro(); // reveal ligne-par-ligne du titre (après le découpage par applyLang)
   initLenis();
-  initPointer();
-  initHeroCanvas();
+  // DA v3 (13/11) : plus de halo curseur, d'effet magnétique ni de fond animé du hero.
   initCcyRotate();
 })();
