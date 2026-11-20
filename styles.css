@@ -353,3 +353,19 @@ a.app-badge strong { font-size: 18px; font-weight: 700; }
   .biz-mock { transform: none; padding: 20px; }
   .biz-mock-amount { font-size: 32px; }
 }
+
+/* ── Mouvement v6 (motion.js, chargé après l'affichage) ── */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300; height: 4px;
+  background: linear-gradient(90deg, var(--violet), var(--gold) 60%, var(--sage));
+  transform: scaleX(0); transform-origin: 0 50%; pointer-events: none;
+}
+.w { display: inline-block; will-change: transform; }
+@media (hover: hover) {
+  .step-card, .adv-card, .coverage-card { transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+  .step-card:hover { transform: translateY(-6px) rotate(0.8deg); }
+  .adv-card:hover, .coverage-card:hover { transform: translateY(-5px) rotate(-1deg); }
+}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
